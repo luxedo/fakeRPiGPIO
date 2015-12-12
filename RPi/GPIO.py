@@ -8,11 +8,11 @@ BCM = 'BCM'
 OUT = 'OUT'
 RPI_INFO = {'INFO': 'Fake GPIO, ¬¬', 'P1_REVISION': 'Fake GPIO, ¬¬'}
 
-VERBOSE = False # Mude para false caso não queria mostrar na tela
+VERBOSE = False
 
 def show_data(name, *args, **kwargs):
     if VERBOSE:
-        print name, ': ', args, kwargs
+        print(name, ': ', args, kwargs)
 
 def setmode(*args, **kwargs):
     show_data('setmode', *args, **kwargs)
