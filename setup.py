@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='fakeRPiGPIO',
-    version='0.1.0a0',
+    version='0.2a0',
     description='fakeRPiGPIO is a package to simulate the RPi.GPIO package',
     long_description=open('README.rst').read(),
     url='https://github.com/ArmlessJohn404/fakeRPiGPIO',
@@ -25,4 +25,6 @@ setup(
     ],
     keywords='RPi fake GPIO',
     packages=['RPi'],
+    install_requires=[],
+
 )
