@@ -17,6 +17,7 @@ IN = 'IN'
 LOW = 'LOW'
 HIGH = 'HIGH'
 
+FALLING = 'FALLING'
 RISING = 'RISING'
 
 PUD_UP = 'PUD_UP'
@@ -105,4 +106,8 @@ def add_event_callback(*args, **kwargs):
 
 @print_data
 def remove_event_detect(*args, **kwargs):
+    pass
+
+@print_data
+def setwarnings(*args, **kwargs):
     pass
