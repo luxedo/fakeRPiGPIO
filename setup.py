@@ -5,7 +5,7 @@ setup(
     version='0.3a0',
     description='fakeRPiGPIO is a package to simulate the RPi.GPIO package',
     long_description=open('README.rst').read(),
-    url='https://github.com/ArmlessJohn404/fakeRPiGPIO',
+    url='https://github.com/luxedo/fakeRPiGPIO',
     author='Luiz Eduardo Nishino Gomes do Amaral',
     author_email='luizamaral306@gmail.com',
     license='GPL3',
