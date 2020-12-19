@@ -1,114 +1,147 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-'''
-Fake RPi.GPIO package
-'''
-#______________________________________________________________________
-# imports
+"""
+Python fake RPi.GPIO library
+Copyright (C) 2020 Luiz Eduardo Amaral <luizamaral306@gmail.com>
 
-#______________________________________________________________________
-# globals
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+"""
+#----------------------------------------------------------------------
+# GLOBALS
+#----------------------------------------------------------------------
+VERBOSE = True
+_FAKE = 'Fake GPIO, ¬¬'
+
 BCM = 'BCM'
 BOARD = 'BOARD'
 
-OUT = 'OUT'
 IN = 'IN'
+OUT = 'OUT'
 
 LOW = 'LOW'
 HIGH = 'HIGH'
 
-FALLING = 'FALLING'
 RISING = 'RISING'
+FALLING = 'FALLING'
 BOTH = 'BOTH'
 
 PUD_UP = 'PUD_UP'
 PUD_DOWN = 'PUD_DOWN'
+PUD_OFF = 'PUD_OFF'
 
-RPI_INFO = {'INFO': 'Fake GPIO, ¬¬', 'P1_REVISION': 'Fake GPIO, ¬¬'}
+HARD_PWM = 'HARD_PWM'
+UNKNOWN = 'UNKNOWN'
+I2C = 'I2C'
+SPI = 'SPI'
+SERIAL = 'SERIAL'
 
-VERSION = '0.2.0a0'
+RPI_INFO = {
+    'P1_REVISION': _FAKE,
+    'REVISION': _FAKE,
+    'TYPE': _FAKE,
+    'MANUFACTURER': _FAKE,
+    'PROCESSOR': _FAKE,
+    'RAM': _FAKE,
+    'INFO': _FAKE,
+}
+RPI_REVISION = _FAKE
 
-#______________________________________________________________________
-# VERBOSE
-VERBOSE = True
+VERSION = '1.0.0'
 
-#______________________________________________________________________
-# functions wrapper/ base fucntion
-def print_data(func):
+#----------------------------------------------------------------------
+# DECORATORS
+#----------------------------------------------------------------------
+def log(func):
     def verbose(*args, **kwargs):
         if VERBOSE:
             print(func.__name__, args, kwargs)
+        return func(*args, **kwargs)
     return verbose
 
-#______________________________________________________________________
-# PWM class
+#----------------------------------------------------------------------
+# CLASSES
+#----------------------------------------------------------------------
 class PWM(object):
-
-    @print_data
+    @log
     def __init__(self, channel, frequency):
         self.channel = channel
         self.frequency = frequency
         self.dc = 0
 
-    @print_data
+    @log
     def start(self, dc):
         pass
 
-    @print_data
+    @log
     def ChangeFrequency(self, freq):
         self.frequency = freq
 
-    @print_data
+    @log
     def ChangeDutyCycle(self, dc):
         self.dc = dc
 
-    @print_data
+    @log
     def stop(self):
         pass
 
-#______________________________________________________________________
-# functions
-
-@print_data
+#----------------------------------------------------------------------
+# FUNCTIONS
+#----------------------------------------------------------------------
+@log
 def setmode(*args, **kwargs):
     pass
 
-@print_data
+@log
+def getmode(*args, **kwargs):
+    pass
+
+@log
+def gpio_function(*args, **kwargs):
+    pass
+
+@log
 def setup(*args, **kwargs):
     pass
 
-@print_data
+@log
 def output(*args, **kwargs):
     pass
 
-@print_data
+@log
 def input(*args, **kwargs):
     pass
 
-@print_data
+@log
 def cleanup(*args, **kwargs):
     pass
 
-@print_data
+@log
 def wait_for_edge(*args, **kwargs):
     pass
 
-@print_data
+@log
 def event_detected(*args, **kwargs):
     pass
 
-@print_data
+@log
 def add_event_detect(*args, **kwargs):
     pass
 
-@print_data
+@log
 def add_event_callback(*args, **kwargs):
     pass
 
-@print_data
+@log
 def remove_event_detect(*args, **kwargs):
     pass
 
-@print_data
+@log
 def setwarnings(*args, **kwargs):
     pass
