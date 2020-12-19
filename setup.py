@@ -1,16 +1,22 @@
 from setuptools import setup
+from os import path
+
+this_directory = path.abspath(path.dirname(__file__))
+with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
+    long_description = f.read()
 
 setup(
     name='fakeRPiGPIO',
-    version='0.3a0',
+    version='1.0.0',
     description='fakeRPiGPIO is a package to simulate the RPi.GPIO package',
-    long_description=open('README.rst').read(),
+    long_description=long_description,
+    long_description_content_type='text/markdown',
     url='https://github.com/luxedo/fakeRPiGPIO',
-    author='Luiz Eduardo Nishino Gomes do Amaral',
+    author='Luiz Eduardo Amaral',
     author_email='luizamaral306@gmail.com',
     license='GPL3',
     classifiers=[
-        'Development Status :: 3 - Alpha',
+        'Development Status :: 5 - Production/Stable',
         'Intended Audience :: Developers',
         'Topic :: System :: Hardware',
         'Topic :: Software Development :: Libraries :: Python Modules',
@@ -19,9 +25,6 @@ setup(
         'Programming Language :: Python :: 2.6',
         'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.2',
-        'Programming Language :: Python :: 3.3',
-        'Programming Language :: Python :: 3.4',
     ],
     keywords='RPi fake GPIO',
     packages=['RPi'],
